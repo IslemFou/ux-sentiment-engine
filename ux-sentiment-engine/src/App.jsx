@@ -1,7 +1,18 @@
+import { useFrictionStore } from './store/frictionStore'
+import Sidebar from './components/Sidebar'
+import CheckoutView from './components/CheckoutView'
+import AnalyticsView from './components/AnalyticsView'
+
 export default function App() {
+  const { currentView } = useFrictionStore()
+
   return (
-    <div className="min-h-screen bg-[#0c0c0f] text-white">
-      <p>It works</p>
+    <div style={{ display: 'flex', minHeight: '100vh', background: '#0c0c0f', color: 'white', fontFamily: 'Syne, sans-serif' }}>
+      <Sidebar />
+      <main style={{ flex: 1, overflowY: 'auto' }}>
+        {currentView === 'checkout' && <CheckoutView />}
+        {currentView === 'analytics' && <AnalyticsView />}
+      </main>
     </div>
   )
 }

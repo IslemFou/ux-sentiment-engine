@@ -4,6 +4,8 @@ import StepIndicator from './checkout/StepIndicator'
 import StepContact from './checkout/StepContact'
 import StepPayment from './checkout/StepPayment'
 import StepReview from './checkout/StepReview'
+//Injecting SmartHelpAlert to display this helper alert whenever the engine senses the user's frustration crosses a threshold (let's say a frustrationScore of 40 or higher).
+import SmartHelpAlert from './checkout/SmartHelpAlert'
 
 export default function CheckoutView() {
     const containerRef = useRef(null)
@@ -28,7 +30,6 @@ export default function CheckoutView() {
 
         // Capture user events inside the target DOM workspace
         container.addEventListener('click', handleInteraction)
-
         return () => {
             // Always clean up event listeners to prevent performance memory leaks
             container.removeEventListener('click', handleInteraction)
@@ -49,6 +50,8 @@ export default function CheckoutView() {
                 )}
 
                 <StepIndicator currentStep={currentStep} />
+                {/* 2. Inline Intervention: Appears directly inside the form workflow if they are struggling */}
+                {frustrationScore >= 40 && <SmartHelpAlert />}
                 {currentStep === 1 && <StepContact onNext={() => setStep(2)} />}
                 {currentStep === 2 && <StepPayment onNext={() => setStep(3)} onBack={() => setStep(1)} />}
                 {currentStep === 3 && <StepReview onBack={() => setStep(2)} />}

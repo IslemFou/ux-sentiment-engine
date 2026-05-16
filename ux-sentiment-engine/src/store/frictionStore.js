@@ -1,10 +1,12 @@
 import { create } from 'zustand';
 
 export const useFrictionStore = create((set, get) => ({
+    currentView: 'checkout',
     currentStep: 1,
     interactions: [],
     frustrationScore: 0, // 0 to 100
 
+    setView: (view) => set({ currentView: view }),
     setStep: (step) => set({ currentStep: step }),
 
     logInteraction: (event) => {
@@ -39,5 +41,6 @@ export const useFrictionStore = create((set, get) => ({
             interactions: newInteractions,
             frustrationScore: finalScore
         });
-    }
+    },
+    resetFrustration: () => set({ frustrationScore: 0 }),
 }))
