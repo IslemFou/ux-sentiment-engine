@@ -15,6 +15,7 @@ export default function Sidebar() {
     const rageClicks = interactions.filter(i => i.type === 'rage').length
     const hoverFrictions = interactions.filter(i => i.type === 'hover').length
 
+    // console.log('sidebar render — frustrationScore:', frustrationScore, '| interactions:', interactions.length)
     return (
         <aside style={{
             width: 220, background: '#14141a',

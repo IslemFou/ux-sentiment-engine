@@ -1,5 +1,6 @@
-import { useRef, useEffect } from 'react' // Added useEffect for Milestone 4 tracking
+import { useRef } from 'react' // Added useEffect for Milestone 4 tracking
 import { useFrictionStore } from '../store/frictionStore'
+import { useFrictionTracker } from '../hooks/useFrictionTracker'
 import StepIndicator from './checkout/StepIndicator'
 import StepContact from './checkout/StepContact'
 import StepPayment from './checkout/StepPayment'
@@ -14,27 +15,31 @@ export default function CheckoutView() {
     const { currentStep, setStep, frustrationScore, logInteraction } = useFrictionStore()
 
     // Milestone 4: Wire the UX sentiment engine tracking listeners to the form container
-    useEffect(() => {
-        const container = containerRef.current
-        if (!container || !logInteraction) return
+    // useEffect(() => {
+    //     const container = containerRef.current
+    //     if (!container || !logInteraction) return
 
-        const handleInteraction = (e) => {
-            // Logs interactions within the container to feed your stress heuristics algorithm
-            logInteraction({
-                type: e.type,
-                target: e.target.tagName,
-                step: currentStep,
-                timestamp: Date.now()
-            })
-        }
+    //     const handleInteraction = (e) => {
+    //         // Logs interactions within the container to feed your stress heuristics algorithm
+    //         logInteraction({
+    //             type: e.type,
+    //             target: e.target.tagName,
+    //             step: currentStep,
+    //             timestamp: Date.now()
+    //         })
+    //     }
 
-        // Capture user events inside the target DOM workspace
-        container.addEventListener('click', handleInteraction)
-        return () => {
-            // Always clean up event listeners to prevent performance memory leaks
-            container.removeEventListener('click', handleInteraction)
-        }
-    }, [currentStep, logInteraction])
+    //     // Capture user events inside the target DOM workspace
+    //     container.addEventListener('click', handleInteraction)
+    //     return () => {
+    //         // Always clean up event listeners to prevent performance memory leaks
+    //         container.removeEventListener('click', handleInteraction)
+    //     }
+    // }, [currentStep, logInteraction])
+
+    //------------------------- replacing useEffect by :
+
+    useFrictionTracker(containerRef)
 
     return (
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 320px', minHeight: '100vh' }}>
