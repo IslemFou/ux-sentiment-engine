@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react' // Added useEffect for Milestone 4 tracking
 import { useFrictionStore } from '../store/frictionStore'
 import StepIndicator from './checkout/StepIndicator'
 import StepContact from './checkout/StepContact'
@@ -7,13 +7,47 @@ import StepReview from './checkout/StepReview'
 
 export default function CheckoutView() {
     const containerRef = useRef(null)
-    const { currentStep, setStep } = useFrictionStore()
+
+    // Milestone 4: Destructure step state, frustration metrics, and tracking handlers
+    const { currentStep, setStep, frustrationScore, logInteraction } = useFrictionStore()
+
+    // Milestone 4: Wire the UX sentiment engine tracking listeners to the form container
+    useEffect(() => {
+        const container = containerRef.current
+        if (!container || !logInteraction) return
+
+        const handleInteraction = (e) => {
+            // Logs interactions within the container to feed your stress heuristics algorithm
+            logInteraction({
+                type: e.type,
+                target: e.target.tagName,
+                step: currentStep,
+                timestamp: Date.now()
+            })
+        }
+
+        // Capture user events inside the target DOM workspace
+        container.addEventListener('click', handleInteraction)
+
+        return () => {
+            // Always clean up event listeners to prevent performance memory leaks
+            container.removeEventListener('click', handleInteraction)
+        }
+    }, [currentStep, logInteraction])
 
     return (
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 320px', minHeight: '100vh' }}>
 
-            {/* Form area — ref goes here, tracker attaches here in M4 */}
+            {/* Form area — ref attached, tracker monitors user friction events inside this scope */}
             <div ref={containerRef} style={{ padding: '40px 40px', position: 'relative' }}>
+
+                {/* Visual indicator of current engine stress levels (Optional debugging element) */}
+                {frustrationScore > 0 && (
+                    <div style={{ position: 'absolute', top: 10, right: 40, fontSize: 11, color: '#ff6b6b', fontFamily: 'DM Mono' }}>
+                        Engine Stress: {frustrationScore}%
+                    </div>
+                )}
+
                 <StepIndicator currentStep={currentStep} />
                 {currentStep === 1 && <StepContact onNext={() => setStep(2)} />}
                 {currentStep === 2 && <StepPayment onNext={() => setStep(3)} onBack={() => setStep(1)} />}
