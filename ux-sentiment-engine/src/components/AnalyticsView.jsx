@@ -3,6 +3,7 @@ import MetricCard from './analytics/MetricCard'
 import TimelineChart from './analytics/TimelineChart'
 import StepsChart from './analytics/StepsChart'
 import FrictionHeatmap from './analytics/FrictionHeatmap'
+import AIInsights from './analytics/AIInsights'
 
 
 
@@ -38,6 +39,7 @@ export default function AnalyticsView() {
 
             {/* Heatmap */}
             <FrictionHeatmap interactions={interactions} />
+            <AIInsights />
         </div>
     )
 }
