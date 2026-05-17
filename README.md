@@ -42,9 +42,20 @@ src/
   step: currentStep,
   timestamp: Date.now()
 }
-2. Heuristic Scoring & WindowingInside frictionStore.js, the engine monitors incoming clicks against previous history using rolling relative windows. If the click counts within a $500\text{ms}$ range cross the critical threshold ($\ge 3$), a localized stress penalty ($+25$) is stacked against the global frustrationScore.3. Smart InterventionsWhen the telemetry store calculates an absolute frustrationScore >= 40, an interactive inline conditional layout opens:Step 1 Stress: Tips outlining formatting structures and security usage constraints.Step 2 Stress: Inline alternate processor routes (e.g., Apple Pay, PayPal hints) to guide users through processing failures.🛠️ Installation & SetupClone the repository:Bashgit clone [https://github.com/your-username/ux-sentiment-engine.git](https://github.com/your-username/ux-sentiment-engine.git)
+2. Heuristic Scoring & WindowingInside frictionStore.js, the engine monitors incoming clicks against previous history using rolling relative windows. If the click counts within a $500\text{ms}$ range cross the critical threshold ($\ge 3$), a localized stress penalty ($+25$) is stacked against the global frustrationScore.
+
+3. Smart InterventionsWhen the telemetry store calculates an absolute frustrationScore >= 40, an interactive inline conditional layout opens:
+Step 1 Stress: Tips outlining formatting structures and security usage constraints.
+Step 2 Stress: Inline alternate processor routes (e.g., Apple Pay, PayPal hints) to guide users through processing failures.
+
+## 🛠️ Installation & Setup
+Clone the repository:
+Bash
+git clone [https://github.com/your-username/ux-sentiment-engine.git](https://github.com/your-username/ux-sentiment-engine.git)
 cd ux-sentiment-engine
-Install dependencies:Bashnpm install zustand
+Install dependencies:
+Bash
+npm install zustand
 # or
 yarn add zustand
 Run the local development server:Bashnpm run dev
