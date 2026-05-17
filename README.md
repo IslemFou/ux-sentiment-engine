@@ -32,6 +32,8 @@ src/
 │
 └── store/
     └── frictionStore.js        # Core Zustand logic, heuristics, & decay engine
+```
+--- 
 
 ## ⚙️ How the Engine Works
 1. Telemetry CaptureThe parent wrapper CheckoutView.jsx attaches an event listener hook to its active viewport scope using a React useRef reference. Every interaction is mapped to a structured object:JavaScript{
