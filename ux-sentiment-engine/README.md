@@ -31,3 +31,15 @@ when frustration hits 40, a panel slides in from the right edge and Claude types
 │                    │ ○ Option 2     │
 │                    │ ○ Option 3     │
 └─────────────────────────────┘────────┘
+## Milestone 7 — AI Insight Generator
+This is the final piece. A button in the analytics dashboard that sends real session data to Claude and gets back 4 prioritized design recommendations rendered as cards.
+┌─────────────────────────────────────────────┐
+│  [Generate AI Insights]                     │
+├─────────────────────────────────────────────┤
+│  🔴 CRITICAL  Add CVV tooltip               │
+│  Users rage-clicked CVV 4x. Add a '?' icon  │
+│  Est. impact: 18% drop-off reduction        │
+├─────────────────────────────────────────────┤
+│  🟡 HIGH  Clarify expiry format             │
+│  ...                                        │
+└─────────────────────────────────────────────┘
