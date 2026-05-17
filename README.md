@@ -137,7 +137,7 @@ The tracker runs invisibly in visitors' browsers, sends friction events to your 
 ### Installation
 
 ```bash
-git clone https://github.com/yourusername/ux-sentiment-engine
+git clone https://github.com/IslemFou/ux-sentiment-engine.git
 cd ux-sentiment-engine
 npm install
 ```
