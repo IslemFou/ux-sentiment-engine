@@ -8,9 +8,18 @@ export const useFrictionStore = create((set, get) => ({
     panelOpen: false,
     panelContext: null,   // stores what triggered it
 
+    //AI
+    // In state
+    aiTriggers: 0,
+
     setView: (view) => set({ currentView: view }),
     setStep: (step) => set({ currentStep: step }),
-    openPanel: (context) => set({ panelOpen: true, panelContext: context }),
+    // In openPanel action — increment it
+    openPanel: (context) => set((state) => ({
+        panelOpen: true,
+        panelContext: context,
+        aiTriggers: state.aiTriggers + 1,
+    })),
     closePanel: () => set({ panelOpen: false, panelContext: null }),
 
 
