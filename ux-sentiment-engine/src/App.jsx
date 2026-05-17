@@ -2,6 +2,7 @@ import { useFrictionStore } from './store/frictionStore'
 import Sidebar from './components/Sidebar'
 import CheckoutView from './components/CheckoutView'
 import AnalyticsView from './components/AnalyticsView'
+import SentimentPanel from './components/SentimentPanel'
 
 export default function App() {
   const { currentView } = useFrictionStore()
@@ -13,6 +14,7 @@ export default function App() {
         {currentView === 'checkout' && <CheckoutView />}
         {currentView === 'analytics' && <AnalyticsView />}
       </main>
+      <SentimentPanel />
     </div>
   )
 }
