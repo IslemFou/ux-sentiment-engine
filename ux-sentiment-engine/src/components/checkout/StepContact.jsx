@@ -6,10 +6,10 @@ export default function StepContact({ onNext }) {
             <h2 style={{ fontSize: 22, fontWeight: 700, marginBottom: 24 }}>Contact information</h2>
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
-                <Field label="First name" id="field-first" placeholder="Alex" />
-                <Field label="Last name" id="field-last" placeholder="Rivera" />
+                <Field label="First name" id="field-first" placeholder="Islem" />
+                <Field label="Last name" id="field-last" placeholder="FOURATI" />
             </div>
-            <Field label="Email address" id="field-email" placeholder="alex@company.com" type="email" />
+            <Field label="Email address" id="field-email" placeholder="Islem@company.com" type="email" />
             <Field label="Shipping address" id="field-address" placeholder="123 Main Street" />
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
                 <Field label="City" id="field-city" placeholder="Paris" />
