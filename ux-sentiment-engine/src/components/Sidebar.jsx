@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import { useFrictionStore } from '../store/frictionStore'
 
 const navItems = [
@@ -14,6 +15,9 @@ export default function Sidebar() {
 
     const rageClicks = interactions.filter(i => i.type === 'rage').length
     const hoverFrictions = interactions.filter(i => i.type === 'hover').length
+
+    // for onboarding navigation
+    const navigate = useNavigate()
 
     // console.log('sidebar render — frustrationScore:', frustrationScore, '| interactions:', interactions.length)
     return (
@@ -55,6 +59,20 @@ export default function Sidebar() {
                     </div>
                 )
             })}
+            {/* ----- Nav about */}
+            <div
+                onClick={() => navigate('/about')}
+                style={{
+                    display: 'flex', alignItems: 'center', gap: 10,
+                    padding: '10px 20px', fontSize: 13, cursor: 'pointer',
+                    color: '#888899', borderLeft: '2px solid transparent',
+                    transition: 'all .15s',
+                }}
+            >
+                <span>📖</span>
+                <span>About / Research</span>
+            </div>
+            {/* ------- about nav */}
 
             {/* Live stats */}
             <div style={{ padding: '24px 20px 0', marginTop: 'auto' }}>
