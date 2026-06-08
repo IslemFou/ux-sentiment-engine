@@ -176,7 +176,7 @@ export default function FeedbackButton() {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         style={{ fontSize: 12, fontWeight: 600, color: '#6c63ff', textDecoration: 'none', letterSpacing: '.02em', display: 'flex', alignItems: 'center', gap: 4 }}
-                                        fourat studio
+                                    // fourat studio
                                     ></a>
                                 </div>
                             </>
@@ -188,3 +188,9 @@ export default function FeedbackButton() {
         </>
     )
 }
+
+console.log(
+    import.meta.env.VITE_EMAILJS_SERVICE_ID,
+    import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+    import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+)
