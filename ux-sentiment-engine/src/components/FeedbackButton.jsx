@@ -105,7 +105,7 @@ export default function FeedbackButton() {
                             <div style={{ fontSize: 11, fontFamily: 'DM Mono, monospace', textTransform: 'uppercase', letterSpacing: '.08em', color: '#6c63ff', marginBottom: 4 }}>
                                 Feedback
                             </div>
-                            <div style={{ fontSize: 16, fontWeight: 700, marginBottom: 4 }}>
+                            <div style={{ fontSize: 16, color: '#967eeb', fontWeight: 700, marginBottom: 4 }}>
                                 Share your thoughts
                             </div>
                             <div style={{ fontSize: 12, color: '#888899', lineHeight: 1.6 }}>
@@ -175,15 +175,12 @@ export default function FeedbackButton() {
                                 {/* Footer with website link */}
                                 <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: 12, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                                     <div style={{ fontSize: 11, color: '#888899', fontFamily: 'DM Mono, monospace' }}>
-                                        Built by
+                                        Built by<a href="http://www.fouratstudio.fr/"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            style={{ fontSize: 12, fontWeight: 600, color: '#6c63ff', textDecoration: 'none', letterSpacing: '.02em', display: 'flex', alignItems: 'center', gap: 4 }}
+                                        >fourat studio</a>
                                     </div>
-
-                                    <a href="http://www.fouratstudio.fr/"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        style={{ fontSize: 12, fontWeight: 600, color: '#6c63ff', textDecoration: 'none', letterSpacing: '.02em', display: 'flex', alignItems: 'center', gap: 4 }}
-                                    // fourat studio
-                                    ></a>
                                 </div>
                             </>
                         )}
